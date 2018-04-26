@@ -1,0 +1,52 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+<h2>Контроллер</h2>
+<p>@Model.ControllerName</p>
+
+<h2>Действие</h2>
+<p>@Model.ActionName</p>
+
+<h2>Исключение</h2>
+<dl>
+    <dt>Тип</dt>
+    <dd>@Model.Exception.GetType()</dd>
+    <dt>Класс</dt>
+    <dd>@Model.Exception.TargetSite.ReflectedType</dd>
+    <dt>Метод</dt>
+    <dd>@Model.Exception.TargetSite.Name</dd>
+    <dt>Сообщение</dt>
+    <dd>@Model.Exception.Message</dd>
+    <dt>Стек</dt>
+    <dd><pre>@Model.Exception.StackTrace</pre></dd>
+</dl>
+
+<br />
+
+@{ Exception ex = Model.Exception;}
+
+@while(ex.InnerException != null)
+{
+    ex = ex.InnerException;
+
+    <dl>
+        <dt>Тип</dt>
+        <dd>@ex.GetType()</dd>
+        <dt>Класс</dt>
+        <dd>@ex.TargetSite.ReflectedType</dd>
+        <dt>Метод</dt>
+        <dd>@ex.Message</dd>
+        <dt>Сообщение</dt>
+        <dd>@ex.Message</dd>
+        <dt>Стек</dt>
+        <dd><pre>@ex.StackTrace</pre></dd>
+    </dl>
+
+    <br />
+}
