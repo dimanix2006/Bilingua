@@ -1,0 +1,21 @@
+﻿@model Project.Models.Language
+
+@{
+    ViewBag.Title = "Editing of a language";
+}
+
+<p>@Html.ActionLink("Cancel", "Details", new { id = Model.ID })</p>
+<h2>Editing of a language</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    <br />
+    @Html.EditorFor(model => model.Name)
+    <br /><br />
+    @Html.LabelFor(model => model.Code)
+    <br />
+    @Html.EditorFor(model => model.Code)
+    <br /><br />
+    <input type="submit" value="Save" />
+}
