@@ -7,3 +7,47 @@
 <h1 class="text-danger">Error.</h1>
 <h2 class="text-danger">An error occurred while processing your request.</h2>
 
+<h2>Controller</h2>
+<p>@Model.ControllerName</p>
+
+<h2>Action</h2>
+<p>@Model.ActionName</p>
+
+<h2>Exception</h2>
+
+<dl>
+    <dt>Type</dt>
+    <dd>@Model.Exception.GetType()</dd>
+    <dt>Class</dt>
+    <dd>@Model.Exception.TargetSite.ReflectedType</dd>
+    <dt>Method</dt>
+    <dd>@Model.Exception.TargetSite.Name</dd>
+    <dt>Message</dt>
+    <dd>@Model.Exception.Message</dd>
+    <dt>Stack</dt>
+    <dd><pre>@Model.Exception.StackTrace</pre></dd>
+</dl>
+
+<br />
+
+@{ Exception ex = Model.Exception;}
+
+@while (ex.InnerException != null)
+{
+    ex = ex.InnerException;
+
+    <dl>
+        <dt>Type</dt>
+        <dd>@ex.GetType()</dd>
+        <dt>Class</dt>
+        <dd>@ex.TargetSite.ReflectedType</dd>
+        <dt>Method</dt>
+        <dd>@ex.TargetSite.Name</dd>
+        <dt>Message</dt>
+        <dd>@ex.Message</dd>
+        <dt>Stack</dt>
+        <dd><pre>@ex.StackTrace</pre></dd>
+    </dl>
+
+    <br />
+}
