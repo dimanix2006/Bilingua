@@ -202,6 +202,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804292032194_InitialCreate.cs" />
+    <Compile Include="Migrations\201804292032194_InitialCreate.Designer.cs">
+      <DependentUpon>201804292032194_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804301053451_AlterLanguage.cs" />
+    <Compile Include="Migrations\201804301053451_AlterLanguage.Designer.cs">
+      <DependentUpon>201804301053451_AlterLanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -278,6 +287,7 @@
     <Content Include="Views\Language\Create.cshtml" />
     <Content Include="Views\Language\Edit.cshtml" />
     <Content Include="Views\Language\Delete.cshtml" />
+    <Content Include="Views\Language\EditorTemplates\Language.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -289,6 +299,14 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201804292032194_InitialCreate.resx">
+      <DependentUpon>201804292032194_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804301053451_AlterLanguage.resx">
+      <DependentUpon>201804301053451_AlterLanguage.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

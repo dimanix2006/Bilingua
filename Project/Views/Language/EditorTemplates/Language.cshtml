@@ -1,0 +1,13 @@
+﻿@model Project.Models.Language
+
+@Html.ValidationSummary()
+@Html.LabelFor(model => model.Name)
+<br />
+@Html.EditorFor(model => model.Name)
+@Html.ValidationMessageFor(model => model.Name)
+<br /><br />
+@Html.LabelFor(model => model.Code)
+<br />
+@Html.EditorFor(model => model.Code)
+@Html.ValidationMessageFor(model => model.Code)
+<br /><br />

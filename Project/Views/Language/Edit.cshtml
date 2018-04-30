@@ -9,14 +9,10 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.Name)
-    <br />
-    @Html.EditorFor(model => model.Name)
-    <br /><br />
-    @Html.LabelFor(model => model.Code)
-    <br />
-    @Html.EditorFor(model => model.Code)
-    <br /><br />
+    @Html.EditorForModel()
     <input type="submit" value="Save" />
 }
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

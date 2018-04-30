@@ -35,10 +35,14 @@ namespace Project.Controllers
         public ActionResult Create(FormCollection collection)
         {
             Language model = new Language();
-            UpdateModel(model, collection);
-            db.Languages.Add(model);
-            db.SaveChanges();
-            return RedirectToAction("Details", new { id = model.ID });
+
+            if (TryUpdateModel(model, collection))
+            {
+                db.Languages.Add(model);
+                db.SaveChanges();
+                return RedirectToAction("Details", new { id = model.ID });
+            }
+            else return View();
         }
 
         [HttpGet]
@@ -54,9 +58,13 @@ namespace Project.Controllers
         {
             Language model = db.Languages.Find(id);
             if (model == null) return View("NotFound");
-            UpdateModel(model, collection);
-            db.SaveChanges();
-            return RedirectToAction("Details", new { id = model.ID });
+
+            if (TryUpdateModel(model, collection))
+            {
+                db.SaveChanges();
+                return RedirectToAction("Details", new { id = model.ID });
+            }
+            else return View(model);
         }
 
         [HttpGet]
